@@ -1,20 +1,34 @@
-package co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo;
+package co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Factory;
 
 import co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Model.*;
 
 import java.util.Date;
 
-public class Main {
-    public static void main(String[] args) {
+public class ModelFactory {
+
+    private static ModelFactory modelFactory;
+
+    private PrestamoUq prestamoUq;
+
+
+
+    /*Constructor*/
+    private ModelFactory(){
+        prestamoUq = new PrestamoUq();
         inicializarDatos();
 
     }
 
-    private static void inicializarDatos() {
 
-        PrestamoUq prestamoUq = new PrestamoUq();
-        prestamoUq.setNombre("Objetos de biblioteca");
+    public static ModelFactory getInstance() {
+        if (modelFactory == null) {
+            modelFactory = new ModelFactory();
+        }
+        return modelFactory;
+    }
 
+
+    private void inicializarDatos() {
         Cliente cliente = new Cliente();
         cliente.setNombre("Carolina");
         cliente.setApellido("Paz");
@@ -98,6 +112,8 @@ public class Main {
         prestamoUq.getListaClientes().add(cliente2);
         prestamoUq.getListaObjetos().add(objeto);
         prestamoUq.getListaObjetos().add(objeto1);
+        prestamoUq.getListaObjetos().add(objeto2);
+        prestamoUq.getListaObjetos().add(objeto3);
 
         prestamo.setClienteAsociado(prestamoUq.getListaClientes().get(0));
         prestamo.setEmpleadoAsociado(prestamoUq.getListaEmpleados().get(0));
@@ -119,7 +135,10 @@ public class Main {
         empleado.getListaPrestamosAsociados().add(prestamo);
         empleado1.getListaPrestamosAsociados().add(prestamo1);
         empleado1.getListaPrestamosAsociados().add(prestamo2);
-
-
     }
+
+    public String obtenerObjetosMasPrestados(String rango) {
+        return prestamoUq.obtenerObjetosMasPrestados(rango);
+    }
+
 }

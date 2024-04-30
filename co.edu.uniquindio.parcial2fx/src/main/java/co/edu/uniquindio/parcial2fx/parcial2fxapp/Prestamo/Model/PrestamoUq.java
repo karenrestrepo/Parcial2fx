@@ -23,6 +23,8 @@ public class PrestamoUq {
         this.listaObjetos = listaObjetos;
     }
 
+
+
     /*Getters and setters*/
 
     public String getNombre() {
@@ -63,6 +65,26 @@ public class PrestamoUq {
 
     public void setListaObjetos(List<Objeto> listaObjetos) {
         this.listaObjetos = listaObjetos;
+    }
+
+
+    public String obtenerObjetosMasPrestados(String rango) {
+        StringBuilder reporte = new StringBuilder();
+        int rangoEntero = Integer.parseInt(rango);
+        for (Objeto objeto : listaObjetos) {
+            int contador = 0;
+            for (Prestamo prestamo : listaPrestamos) {
+                for (Objeto objetoPrestado : prestamo.getListaObjetosAsociados()) {
+                    if (objeto.getNombre().equalsIgnoreCase(objetoPrestado.getNombre())) {
+                        contador++;
+                    }
+                }
+            }
+            if (contador >= rangoEntero) {
+                reporte.append(objeto.toString()).append("\n");
+            }
+        }
+        return reporte.toString();
     }
 
     @Override

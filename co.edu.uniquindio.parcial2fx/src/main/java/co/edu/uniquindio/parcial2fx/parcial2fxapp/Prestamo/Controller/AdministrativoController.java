@@ -2,6 +2,9 @@ package co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Factory.ModelFactory;
+import co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Model.PrestamoUq;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,6 +12,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class AdministrativoController {
+
+    ModelFactory modelFactory;
 
     @FXML
     private ResourceBundle resources;
@@ -66,12 +71,23 @@ public class AdministrativoController {
 
     @FXML
     void onObjetosMasPrestados(ActionEvent event) {
-
-
+        String rango = txtRangoObjetosPrestados.getText().trim();
+        if (!rango.isEmpty()) {
+            try {
+                String reporteObjetos = modelFactory.obtenerObjetosMasPrestados(rango);
+                txtRequerimientoObjetos.setText(reporteObjetos);
+            } catch (NumberFormatException e) {
+                txtRequerimientoObjetos.setText("Por favor, ingrese un número válido.");
+            }
+        } else {
+            txtRequerimientoObjetos.setText("Por favor, ingrese un número.");
+        }
     }
+
 
     @FXML
     void initialize() {
+        modelFactory = ModelFactory.getInstance();
 
     }
 

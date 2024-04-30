@@ -61,6 +61,7 @@ public class Objeto {
     public String toString() {
         return "Objeto{" +
                 "nombre='" + nombre + '\'' +
+                ", codigoId='" + codigoId + '\'' +
                 '}';
     }
 }
