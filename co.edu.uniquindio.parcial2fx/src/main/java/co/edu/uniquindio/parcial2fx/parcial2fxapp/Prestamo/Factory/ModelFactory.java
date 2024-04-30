@@ -124,7 +124,7 @@ public class ModelFactory {
         prestamo1.setEmpleadoAsociado(prestamoUq.getListaEmpleados().get(1));
         prestamo1.getListaObjetosAsociados().add(prestamoUq.getListaObjetos().get(1));
 
-        prestamo2.setClienteAsociado(prestamoUq.getListaClientes().get(2));
+        prestamo2.setClienteAsociado(prestamoUq.getListaClientes().get(1));
         prestamo2.setEmpleadoAsociado(prestamoUq.getListaEmpleados().get(1));
         prestamo2.getListaObjetosAsociados().add(prestamoUq.getListaObjetos().get(2));
 
@@ -141,4 +141,15 @@ public class ModelFactory {
         return prestamoUq.obtenerObjetosMasPrestados(rango);
     }
 
+    public String buscarObjetoPorCodigo(String codigoObjeto) {
+        return prestamoUq.buscarObjetoPorCodigo(codigoObjeto);
+    }
+
+    public String obtenerClientesMasPrestamos(String rango) {
+        return prestamoUq.obtenerClientesMasPrestamos(rango);
+    }
+
+    public String obtenerEstadoObjetos() {
+        return prestamoUq.obtenerEstadoObjetos();
+    }
 }

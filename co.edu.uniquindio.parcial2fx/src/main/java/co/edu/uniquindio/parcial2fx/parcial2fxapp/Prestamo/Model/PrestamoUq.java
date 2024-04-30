@@ -68,6 +68,35 @@ public class PrestamoUq {
     }
 
 
+    public String obtenerClientesMasPrestamos(String rango) {
+        int rangoReseltado = Integer.parseInt(rango);
+        StringBuilder resultado = new StringBuilder();
+        for (Cliente cliente : listaClientes) {
+            int cantidadPrestamos = 0;
+            for (Prestamo prestamo : listaPrestamos) {
+                if (prestamo.getClienteAsociado().equals(cliente)) {
+                    cantidadPrestamos++;
+                }
+            }
+            if (cantidadPrestamos >= rangoReseltado) {
+                resultado.append(cliente.toString()).append(" - Cantidad de préstamos: ").append(cantidadPrestamos).append("\n");
+            }
+        }
+        return resultado.toString();
+    }
+
+    public String buscarObjetoPorCodigo(String codigoObjeto) {
+        String objetoEncontrado = "";
+        for (Objeto objeto : listaObjetos) {
+            if (objeto.getCodigoId().equalsIgnoreCase(codigoObjeto)) {
+                objetoEncontrado+= objeto;
+                return objetoEncontrado.toString();
+            }
+
+        }
+        return null;
+    }
+
     public String obtenerObjetosMasPrestados(String rango) {
         StringBuilder reporte = new StringBuilder();
         int rangoEntero = Integer.parseInt(rango);
@@ -92,5 +121,38 @@ public class PrestamoUq {
         return "PrestamoUq{" +
                 "nombre='" + nombre + '\'' +
                 '}';
+    }
+
+
+    public String obtenerEstadoObjetos() {
+        StringBuilder resultado = new StringBuilder();
+        List<Objeto> objetosDisponibles = new ArrayList<>();
+        List<Objeto> objetosNoDisponibles = new ArrayList<>();
+
+        for (Objeto objeto : listaObjetos) {
+            boolean estaAsociado = false;
+            for (Prestamo prestamo : listaPrestamos) {
+                if (prestamo.getListaObjetosAsociados().contains(objeto)) {
+                    estaAsociado = true;
+                    break;
+                }
+            }
+            if (estaAsociado) {
+                objetosNoDisponibles.add(objeto);
+            } else {
+                objetosDisponibles.add(objeto);
+            }
+        }
+
+        resultado.append("Objetos disponibles:\n");
+        for (Objeto objeto : objetosDisponibles) {
+            resultado.append(objeto.toString()).append("\n");
+        }
+        resultado.append("\nObjetos no disponibles:\n");
+        for (Objeto objeto : objetosNoDisponibles) {
+            resultado.append(objeto.toString()).append("\n");
+        }
+
+        return resultado.toString();
     }
 }

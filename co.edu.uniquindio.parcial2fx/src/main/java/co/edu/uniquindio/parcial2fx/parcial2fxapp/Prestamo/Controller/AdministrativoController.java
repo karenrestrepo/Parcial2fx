@@ -56,17 +56,49 @@ public class AdministrativoController {
 
     @FXML
     void onBuscarObjeto(ActionEvent event) {
+        buscarObjeto();
 
+    }
+
+    private void buscarObjeto() {
+        String codigoObjeto = txtCodigoObjeto.getText().trim();
+        if (!codigoObjeto.isEmpty()) {
+            try {
+                String objetoEncontrado = modelFactory.buscarObjetoPorCodigo(codigoObjeto);
+                if (objetoEncontrado != null) {
+                    txtRequerimientoBuscar.setText(objetoEncontrado);
+                } else {
+                    txtRequerimientoBuscar.setText("No se encontró el objeto con el código: " + codigoObjeto);
+                }
+            } catch (Exception e) {
+                txtRequerimientoBuscar.setText("Ocurrió un error al buscar el objeto.");
+            }
+        } else {
+            txtRequerimientoBuscar.setText("Por favor, ingrese un código de objeto.");
+        }
     }
 
     @FXML
     void onClientesMasPrestamos(ActionEvent event) {
+        String rangoTexto = txtRangoClientesPrestamos.getText().trim();
+        if (!rangoTexto.isEmpty()) {
+            try {
+                String reporteCliente = modelFactory.obtenerClientesMasPrestamos(rangoTexto);
+                txtRequerimientoClientes.setText(reporteCliente);
+            } catch (NumberFormatException e) {
+                txtRequerimientoClientes.setText("Por favor, ingrese un número válido.");
+            }
+        } else {
+            txtRequerimientoClientes.setText("Por favor, ingrese un número.");
+        }
 
     }
 
     @FXML
     void onEstadoObjetos(ActionEvent event) {
 
+        String resultado = modelFactory.obtenerEstadoObjetos();
+        txtRequerimientoEstado.setText(resultado);
     }
 
     @FXML
