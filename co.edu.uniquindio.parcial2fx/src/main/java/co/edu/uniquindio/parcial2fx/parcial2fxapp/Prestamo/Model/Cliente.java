@@ -1,7 +1,11 @@
-package co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo;
+package co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cliente extends Persona{
 
+    List<Prestamo> listaPrestamosAsociados = new ArrayList<>();
     PrestamoUq ownedByPrestamoUq;
 
     /*Constructor*/
@@ -15,6 +19,14 @@ public class Cliente extends Persona{
     }
 
     /*Getters and Setters*/
+
+    public List<Prestamo> getListaPrestamosAsociados() {
+        return listaPrestamosAsociados;
+    }
+
+    public void setListaPrestamosAsociados(List<Prestamo> listaPrestamosAsociados) {
+        this.listaPrestamosAsociados = listaPrestamosAsociados;
+    }
 
     public PrestamoUq getOwnedByPrestamoUq() {
         return ownedByPrestamoUq;

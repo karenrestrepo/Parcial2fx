@@ -1,8 +1,9 @@
-package co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo;
+package co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Model;
 
 public class Objeto {
 
     private String nombre;
+    Prestamo prestamoAsociado;
     PrestamoUq ownedByPrestamoUq;
 
     /*Constructor*/
@@ -16,6 +17,14 @@ public class Objeto {
     }
 
     /*Getters and setters*/
+
+    public Prestamo getPrestamoAsociado() {
+        return prestamoAsociado;
+    }
+
+    public void setPrestamoAsociado(Prestamo prestamoAsociado) {
+        this.prestamoAsociado = prestamoAsociado;
+    }
 
     public String getNombre() {
         return nombre;

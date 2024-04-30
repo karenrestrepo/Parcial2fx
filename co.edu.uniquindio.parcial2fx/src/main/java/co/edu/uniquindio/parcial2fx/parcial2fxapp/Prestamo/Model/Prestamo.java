@@ -1,6 +1,8 @@
-package co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo;
+package co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Prestamo {
 
@@ -8,6 +10,9 @@ public class Prestamo {
     private Date fechaPrestamo;
     private Date fechaEntrega;
     private String descripcion;
+    Cliente clienteAsociado;
+    Empleado empleadoAsociado;
+    List<Objeto> listaObjetosAsociados = new ArrayList<>();
     PrestamoUq ownedByPrestamoUq;
 
     /*Constructor*/
@@ -55,6 +60,30 @@ public class Prestamo {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Cliente getClienteAsociado() {
+        return clienteAsociado;
+    }
+
+    public void setClienteAsociado(Cliente clienteAsociado) {
+        this.clienteAsociado = clienteAsociado;
+    }
+
+    public Empleado getEmpleadoAsociado() {
+        return empleadoAsociado;
+    }
+
+    public void setEmpleadoAsociado(Empleado empleadoAsociado) {
+        this.empleadoAsociado = empleadoAsociado;
+    }
+
+    public List<Objeto> getListaObjetosAsociados() {
+        return listaObjetosAsociados;
+    }
+
+    public void setListaObjetosAsociados(List<Objeto> listaObjetosAsociados) {
+        this.listaObjetosAsociados = listaObjetosAsociados;
     }
 
     public PrestamoUq getOwnedByPrestamoUq() {

@@ -1,4 +1,4 @@
-package co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo;
+package co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Model;
 
 public class Persona {
     private String nombre;
