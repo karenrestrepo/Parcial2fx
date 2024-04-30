@@ -70,11 +70,23 @@ public class Main {
 
         Objeto objeto = new Objeto();
         objeto.setNombre("Libro");
+        objeto.setCodigoId("1234");
         objeto.setOwnedByPrestamoUq(prestamoUq);
 
         Objeto objeto1 = new Objeto();
         objeto1.setNombre("Comic");
+        objeto1.setCodigoId("5678");
         objeto1.setOwnedByPrestamoUq(prestamoUq);
+
+        Objeto objeto2 = new Objeto();
+        objeto2.setNombre("Enciclopedia");
+        objeto2.setCodigoId("9012");
+        objeto2.setOwnedByPrestamoUq(prestamoUq);
+
+        Objeto objeto3 = new Objeto();
+        objeto3.setNombre("Mapamundi");
+        objeto3.setCodigoId("3456");
+        objeto3.setOwnedByPrestamoUq(prestamoUq);
 
         prestamoUq.getListaPrestamos().add(prestamo);
         prestamoUq.getListaPrestamos().add(prestamo1);
@@ -90,6 +102,7 @@ public class Main {
         prestamo.setClienteAsociado(prestamoUq.getListaClientes().get(0));
         prestamo.setEmpleadoAsociado(prestamoUq.getListaEmpleados().get(0));
         prestamo.getListaObjetosAsociados().add(prestamoUq.getListaObjetos().get(0));
+        prestamo.getListaObjetosAsociados().add(prestamoUq.getListaObjetos().get(0));
 
         prestamo1.setClienteAsociado(prestamoUq.getListaClientes().get(1));
         prestamo1.setEmpleadoAsociado(prestamoUq.getListaEmpleados().get(1));
@@ -97,7 +110,7 @@ public class Main {
 
         prestamo2.setClienteAsociado(prestamoUq.getListaClientes().get(2));
         prestamo2.setEmpleadoAsociado(prestamoUq.getListaEmpleados().get(1));
-        prestamo2.getListaObjetosAsociados().add(prestamoUq.getListaObjetos().get(1));
+        prestamo2.getListaObjetosAsociados().add(prestamoUq.getListaObjetos().get(2));
 
         cliente.getListaPrestamosAsociados().add(prestamo);
         cliente1.getListaPrestamosAsociados().add(prestamo1);

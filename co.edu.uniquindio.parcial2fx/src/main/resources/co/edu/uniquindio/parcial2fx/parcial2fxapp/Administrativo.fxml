@@ -1,14 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Controller.AdministrativoController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="486.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Controller.AdministrativoController">
+   <children>
+      <TabPane prefHeight="486.0" prefWidth="710.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Conjsulta administrador">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="6.0" prefHeight="458.0" prefWidth="704.0">
+                           <children>
+                              <SplitPane dividerPositions="0.5" layoutX="-1.0" layoutY="4.0" orientation="VERTICAL" prefHeight="448.0" prefWidth="701.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                       <children>
+                                          <Separator layoutX="3.0" layoutY="109.0" prefHeight="10.0" prefWidth="710.0" />
+                                          <TextArea fx:id="txtRequerimientoObjetos" layoutX="308.0" layoutY="14.0" prefHeight="87.0" prefWidth="377.0" />
+                                          <TextArea fx:id="txtRequerimientoBuscar" layoutX="308.0" layoutY="126.0" prefHeight="87.0" prefWidth="377.0" />
+                                          <TextField fx:id="txtRangoObjetosPrestados" layoutX="80.0" layoutY="26.0" prefHeight="25.0" prefWidth="172.0" />
+                                          <Button fx:id="btnObjetosMasPrestados" layoutX="36.0" layoutY="66.0" mnemonicParsing="false" onAction="#onObjetosMasPrestados" prefHeight="25.0" prefWidth="202.0" text="Objetos más prestados" />
+                                          <Label layoutX="22.0" layoutY="30.0" text="Rango:" />
+                                          <Label layoutX="22.0" layoutY="139.0" text="Código:" />
+                                          <TextField fx:id="txtCodigoObjeto" layoutX="82.0" layoutY="135.0" prefHeight="25.0" prefWidth="172.0" />
+                                          <Button fx:id="btnBuscarObjeto" layoutX="39.0" layoutY="170.0" mnemonicParsing="false" onAction="#onBuscarObjeto" prefHeight="25.0" prefWidth="202.0" text="Buscar objeto" />
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                       <children>
+                                          <Separator layoutX="3.0" layoutY="109.0" prefHeight="10.0" prefWidth="710.0" />
+                                          <TextArea fx:id="txtRequerimientoClientes" layoutX="308.0" layoutY="14.0" prefHeight="87.0" prefWidth="377.0" />
+                                          <TextArea fx:id="txtRequerimientoEstado" layoutX="308.0" layoutY="125.0" prefHeight="87.0" prefWidth="377.0" />
+                                          <TextField fx:id="txtRangoClientesPrestamos" layoutX="86.0" layoutY="25.0" prefHeight="25.0" prefWidth="172.0" />
+                                          <Button fx:id="btnClientesMasPrestamos" layoutX="42.0" layoutY="65.0" mnemonicParsing="false" onAction="#onClientesMasPrestamos" prefHeight="25.0" prefWidth="202.0" text="Clientes con más prestamos" />
+                                          <Label layoutX="28.0" layoutY="29.0" text="Rango:" />
+                                          <Button fx:id="btnEstadoObjetos" layoutX="42.0" layoutY="156.0" mnemonicParsing="false" onAction="#onEstadoObjetos" prefHeight="25.0" prefWidth="202.0" text="Estado de los objetos" />
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
 </AnchorPane>
