@@ -2,6 +2,7 @@ package co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Factory;
 
 import co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Model.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class ModelFactory {
@@ -151,5 +152,13 @@ public class ModelFactory {
 
     public String obtenerEstadoObjetos() {
         return prestamoUq.obtenerEstadoObjetos();
+    }
+
+    public String obtenerPrestamosPorFechaEspecifica(LocalDate fecha) {
+        return prestamoUq.obtenerPrestamosPorFechaEspecifica(fecha);
+    }
+
+    public String obtenerPrestamosPorRangoFechas(LocalDate fechaInicial, LocalDate fechaFinal) {
+    return prestamoUq.obtenerPrestamosPorRangoFechas(fechaInicial,fechaFinal);
     }
 }

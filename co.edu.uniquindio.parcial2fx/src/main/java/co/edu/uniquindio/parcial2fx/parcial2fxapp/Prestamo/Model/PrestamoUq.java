@@ -1,5 +1,6 @@
 package co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -153,6 +154,33 @@ public class PrestamoUq {
             resultado.append(objeto.toString()).append("\n");
         }
 
+        return resultado.toString();
+    }
+
+    public String obtenerPrestamosPorFechaEspecifica(LocalDate fecha) {
+        StringBuilder resultado = new StringBuilder();
+        for (Prestamo prestamo : listaPrestamos) {
+            if (prestamo.getFechaPrestamo().compareTo(fecha) {
+                resultado.append(prestamo.toString()).append("\n");
+            }
+        }
+        return resultado.toString();
+        
+    }
+
+    public String obtenerPrestamosPorRangoFechas(LocalDate fechaInicial, LocalDate fechaFinal) {
+        StringBuilder resultado = new StringBuilder();
+        for (Prestamo prestamo : listaPrestamos) {
+            LocalDate fechaPrestamo = prestamo.getFechaPrestamo().toLocalDate();
+            LocalDate fechaEntrega = prestamo.getFechaEntrega().toLocalDate();
+            if ((fechaPrestamo.isAfter(fechaInicial) || fechaPrestamo.isEqual(fechaInicial)) &&
+                    (fechaPrestamo.isBefore(fechaFinal) || fechaPrestamo.isEqual(fechaFinal))) {
+                resultado.append(prestamo.toString()).append("\n");
+            } else if ((fechaEntrega.isAfter(fechaInicial) || fechaEntrega.isEqual(fechaInicial)) &&
+                    (fechaEntrega.isBefore(fechaFinal) || fechaEntrega.isEqual(fechaFinal))) {
+                resultado.append(prestamo.toString()).append("\n");
+            }
+        }
         return resultado.toString();
     }
 }
