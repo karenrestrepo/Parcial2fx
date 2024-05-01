@@ -68,36 +68,36 @@ public class PrestamoUq {
     }
 
 
-    public String obtenerClientesMasPrestamos(String rango) {
+    public String obtenerEmpleadosMasPrestamos(String rango) {
         int rangoReseltado = Integer.parseInt(rango);
         StringBuilder resultado = new StringBuilder();
-        for (Cliente cliente : listaClientes) {
+        for (Empleado empleado : listaEmpleados) {
             int cantidadPrestamos = 0;
             for (Prestamo prestamo : listaPrestamos) {
-                if (prestamo.getClienteAsociado().equals(cliente)) {
+                if (prestamo.getEmpleadoAsociado().equals(empleado)) {
                     cantidadPrestamos++;
                 }
             }
             if (cantidadPrestamos >= rangoReseltado) {
-                resultado.append(cliente.toString()).append(" - Cantidad de préstamos: ").append(cantidadPrestamos).append("\n");
+                resultado.append(empleado.toString()).append(" - Cantidad de préstamos: ").append(cantidadPrestamos).append("\n");
             }
         }
         return resultado.toString();
     }
 
-    public String buscarObjetoPorCodigo(String codigoObjeto) {
-        String objetoEncontrado = "";
-        for (Objeto objeto : listaObjetos) {
-            if (objeto.getCodigoId().equalsIgnoreCase(codigoObjeto)) {
-                objetoEncontrado+= objeto;
-                return objetoEncontrado.toString();
+    public String buscarClientePorCedula(String cedula) {
+        String clienteEncontrado = "";
+        for (Cliente cliente : listaClientes) {
+            if (cliente.getCedula().equalsIgnoreCase(cedula)) {
+                clienteEncontrado += cliente;
+                return clienteEncontrado.toString();
             }
 
         }
         return null;
     }
 
-    public String obtenerObjetosMasPrestados(String rango) {
+    public String obtenerObjetosMenosPrestados(String rango) {
         StringBuilder reporte = new StringBuilder();
         int rangoEntero = Integer.parseInt(rango);
         for (Objeto objeto : listaObjetos) {
@@ -109,7 +109,7 @@ public class PrestamoUq {
                     }
                 }
             }
-            if (contador >= rangoEntero) {
+            if (contador <= rangoEntero) {
                 reporte.append(objeto.toString()).append("\n");
             }
         }

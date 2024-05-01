@@ -64,6 +64,13 @@ public class ModelFactory {
         empleado1.setEdad(37);
         empleado1.setOwnedByPrestamoUq(prestamoUq);
 
+        Empleado empleado2 = new Empleado();
+        empleado2.setNombre("Martina");
+        empleado2.setApellido("Vergara");
+        empleado2.setCedula("109875");
+        empleado2.setEdad(26);
+        empleado2.setOwnedByPrestamoUq(prestamoUq);
+
         Prestamo prestamo = new Prestamo();
         prestamo.setNumeroPrestamo("PO-001");
         prestamo.setFechaPrestamo(new Date(24,1,5));
@@ -107,6 +114,7 @@ public class ModelFactory {
         prestamoUq.getListaPrestamos().add(prestamo2);
         prestamoUq.getListaEmpleados().add(empleado);
         prestamoUq.getListaEmpleados().add(empleado1);
+        prestamoUq.getListaEmpleados().add(empleado2);
         prestamoUq.getListaClientes().add(cliente);
         prestamoUq.getListaClientes().add(cliente1);
         prestamoUq.getListaClientes().add(cliente2);
@@ -135,18 +143,20 @@ public class ModelFactory {
         empleado.getListaPrestamosAsociados().add(prestamo);
         empleado1.getListaPrestamosAsociados().add(prestamo1);
         empleado1.getListaPrestamosAsociados().add(prestamo2);
+        empleado2.getListaPrestamosAsociados().add(prestamo);
+        empleado2.getListaPrestamosAsociados().add(prestamo2);
     }
 
-    public String obtenerObjetosMasPrestados(String rango) {
-        return prestamoUq.obtenerObjetosMasPrestados(rango);
+    public String obtenerObjetosMenosPrestados(String rango) {
+        return prestamoUq.obtenerObjetosMenosPrestados(rango);
     }
 
-    public String buscarObjetoPorCodigo(String codigoObjeto) {
-        return prestamoUq.buscarObjetoPorCodigo(codigoObjeto);
+    public String buscarClientePorCedula(String cedula) {
+        return prestamoUq.buscarClientePorCedula(cedula);
     }
 
-    public String obtenerClientesMasPrestamos(String rango) {
-        return prestamoUq.obtenerClientesMasPrestamos(rango);
+    public String obtenerEmpleadosMasPrestamos(String rango) {
+        return prestamoUq.obtenerEmpleadosMasPrestamos(rango);
     }
 
     public String obtenerEstadoObjetos() {

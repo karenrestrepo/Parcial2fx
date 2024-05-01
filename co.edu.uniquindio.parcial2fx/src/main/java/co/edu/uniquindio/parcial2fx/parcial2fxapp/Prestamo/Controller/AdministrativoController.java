@@ -14,7 +14,7 @@ import javafx.scene.control.TextField;
 public class AdministrativoController {
 
     ModelFactory modelFactory;
-    
+
     @FXML
     private ResourceBundle resources;
 
@@ -22,28 +22,28 @@ public class AdministrativoController {
     private URL location;
 
     @FXML
-    private Button btnBuscarObjeto;
+    private Button btnBuscarCliente;
 
     @FXML
-    private Button btnClientesMasPrestamos;
+    private Button btnEmpleadosMasPrestamos;
 
     @FXML
     private Button btnFechaEspecifica;
 
     @FXML
-    private Button btnObjetosMasPrestados;
+    private Button btnObjetosMenosPrestados;
 
     @FXML
     private Button btnRangoFecha;
 
     @FXML
-    private TextField txtCodigoObjeto;
+    private TextField txtCedulaCliente;
 
     @FXML
     private TextField txtFechaEspecifica;
 
     @FXML
-    private TextField txtRangoClientesPrestamos;
+    private TextField txtRangoEmpleadosPrestamos;
 
     @FXML
     private TextField txtRangoFechaFin;
@@ -58,7 +58,7 @@ public class AdministrativoController {
     private TextArea txtRequerimientoBuscar;
 
     @FXML
-    private TextArea txtRequerimientoClientes;
+    private TextArea txtRequerimientoEmpleados;
 
     @FXML
     private TextArea txtRequerimientoFecha;
@@ -66,53 +66,52 @@ public class AdministrativoController {
     @FXML
     private TextArea txtRequerimientoObjetos;
 
-
     @FXML
-    void onBuscarObjeto(ActionEvent event) {
-        buscarObjeto();
+    void onBuscarCliente(ActionEvent event) {
+        buscarCliente();
 
     }
 
-    private void buscarObjeto() {
-        String codigoObjeto = txtCodigoObjeto.getText().trim();
-        if (!codigoObjeto.isEmpty()) {
+    private void buscarCliente() {
+        String cedulaCliente = txtCedulaCliente.getText().trim();
+        if (!cedulaCliente.isEmpty()) {
             try {
-                String objetoEncontrado = modelFactory.buscarObjetoPorCodigo(codigoObjeto);
-                if (objetoEncontrado != null) {
-                    txtRequerimientoBuscar.setText(objetoEncontrado);
+                String clienteEncontrado = modelFactory.buscarClientePorCedula(cedulaCliente);
+                if (clienteEncontrado != null) {
+                    txtRequerimientoBuscar.setText(clienteEncontrado);
                 } else {
-                    txtRequerimientoBuscar.setText("No se encontró el objeto con el código: " + codigoObjeto);
+                    txtRequerimientoBuscar.setText("No se encontró el cliente con la cedula: " + cedulaCliente);
                 }
             } catch (Exception e) {
-                txtRequerimientoBuscar.setText("Ocurrió un error al buscar el objeto.");
+                txtRequerimientoBuscar.setText("Ocurrió un error al buscar el cliente.");
             }
         } else {
-            txtRequerimientoBuscar.setText("Por favor, ingrese un código de objeto.");
+            txtRequerimientoBuscar.setText("Por favor, ingrese una cedula de un cliente.");
         }
     }
 
     @FXML
-    void onClientesMasPrestamos(ActionEvent event) {
-        String rangoTexto = txtRangoClientesPrestamos.getText().trim();
+    void  onEmpleadosMasPrestamos(ActionEvent event) {
+        String rangoTexto = txtRangoEmpleadosPrestamos.getText().trim();
         if (!rangoTexto.isEmpty()) {
             try {
-                String reporteCliente = modelFactory.obtenerClientesMasPrestamos(rangoTexto);
-                txtRequerimientoClientes.setText(reporteCliente);
+                String reporteEmpleado = modelFactory.obtenerEmpleadosMasPrestamos(rangoTexto);
+                txtRequerimientoEmpleados.setText(reporteEmpleado);
             } catch (NumberFormatException e) {
-                txtRequerimientoClientes.setText("Por favor, ingrese un número válido.");
+                txtRequerimientoEmpleados.setText("Por favor, ingrese un número válido.");
             }
         } else {
-            txtRequerimientoClientes.setText("Por favor, ingrese un número.");
+            txtRequerimientoEmpleados.setText("Por favor, ingrese un número.");
         }
 
     }
 
     @FXML
-    void onObjetosMasPrestados(ActionEvent event) {
+    void onObjetosMenosPrestados(ActionEvent event) {
         String rango = txtRangoObjetosPrestados.getText().trim();
         if (!rango.isEmpty()) {
             try {
-                String reporteObjetos = modelFactory.obtenerObjetosMasPrestados(rango);
+                String reporteObjetos = modelFactory.obtenerObjetosMenosPrestados(rango);
                 txtRequerimientoObjetos.setText(reporteObjetos);
             } catch (NumberFormatException e) {
                 txtRequerimientoObjetos.setText("Por favor, ingrese un número válido.");
