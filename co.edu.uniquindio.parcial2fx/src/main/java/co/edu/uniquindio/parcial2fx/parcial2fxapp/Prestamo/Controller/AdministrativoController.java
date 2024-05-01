@@ -14,7 +14,7 @@ import javafx.scene.control.TextField;
 public class AdministrativoController {
 
     ModelFactory modelFactory;
-
+    
     @FXML
     private ResourceBundle resources;
 
@@ -28,16 +28,28 @@ public class AdministrativoController {
     private Button btnClientesMasPrestamos;
 
     @FXML
-    private Button btnEstadoObjetos;
+    private Button btnFechaEspecifica;
 
     @FXML
     private Button btnObjetosMasPrestados;
 
     @FXML
+    private Button btnRangoFecha;
+
+    @FXML
     private TextField txtCodigoObjeto;
 
     @FXML
+    private TextField txtFechaEspecifica;
+
+    @FXML
     private TextField txtRangoClientesPrestamos;
+
+    @FXML
+    private TextField txtRangoFechaFin;
+
+    @FXML
+    private TextField txtRangoFechaInicio;
 
     @FXML
     private TextField txtRangoObjetosPrestados;
@@ -49,10 +61,11 @@ public class AdministrativoController {
     private TextArea txtRequerimientoClientes;
 
     @FXML
-    private TextArea txtRequerimientoEstado;
+    private TextArea txtRequerimientoFecha;
 
     @FXML
     private TextArea txtRequerimientoObjetos;
+
 
     @FXML
     void onBuscarObjeto(ActionEvent event) {
@@ -95,13 +108,6 @@ public class AdministrativoController {
     }
 
     @FXML
-    void onEstadoObjetos(ActionEvent event) {
-
-        String resultado = modelFactory.obtenerEstadoObjetos();
-        txtRequerimientoEstado.setText(resultado);
-    }
-
-    @FXML
     void onObjetosMasPrestados(ActionEvent event) {
         String rango = txtRangoObjetosPrestados.getText().trim();
         if (!rango.isEmpty()) {
@@ -116,12 +122,17 @@ public class AdministrativoController {
         }
     }
 
+    @FXML
+    void onFechaEspecifica(ActionEvent event) {
+    }
+
+    @FXML
+    void onRangoFecha(ActionEvent event) {
+
+    }
 
     @FXML
     void initialize() {
         modelFactory = ModelFactory.getInstance();
-
     }
-
 }
-
