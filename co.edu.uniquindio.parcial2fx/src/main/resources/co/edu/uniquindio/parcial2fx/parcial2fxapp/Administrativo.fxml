@@ -10,8 +10,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="486.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Controller.AdministrativoController">
+<AnchorPane prefHeight="486.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/20.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.parcial2fx.parcial2fxapp.Prestamo.Controller.AdministrativoController">
    <children>
       <TabPane prefHeight="486.0" prefWidth="710.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -29,20 +28,20 @@
                                           <TextArea fx:id="txtRequerimientoObjetos" layoutX="308.0" layoutY="14.0" prefHeight="87.0" prefWidth="377.0" />
                                           <TextArea fx:id="txtRequerimientoBuscar" layoutX="308.0" layoutY="126.0" prefHeight="87.0" prefWidth="377.0" />
                                           <TextField fx:id="txtRangoObjetosPrestados" layoutX="80.0" layoutY="26.0" prefHeight="25.0" prefWidth="172.0" />
-                                          <Button fx:id="btnObjetosMasPrestados" layoutX="36.0" layoutY="66.0" mnemonicParsing="false" onAction="#onObjetosMasPrestados" prefHeight="25.0" prefWidth="202.0" text="Objetos más prestados" />
+                                          <Button fx:id="btnObjetosMenosPrestados" layoutX="36.0" layoutY="66.0" mnemonicParsing="false" onAction="#onObjetosMenosPrestados" prefHeight="25.0" prefWidth="202.0" text="Objetos menos prestados" />
                                           <Label layoutX="22.0" layoutY="30.0" text="Rango:" />
-                                          <Label layoutX="22.0" layoutY="139.0" text="Código:" />
-                                          <TextField fx:id="txtCodigoObjeto" layoutX="82.0" layoutY="135.0" prefHeight="25.0" prefWidth="172.0" />
-                                          <Button fx:id="btnBuscarObjeto" layoutX="39.0" layoutY="170.0" mnemonicParsing="false" onAction="#onBuscarObjeto" prefHeight="25.0" prefWidth="202.0" text="Buscar objeto" />
+                                          <Label layoutX="22.0" layoutY="139.0" text="Cédula:" />
+                                          <TextField fx:id="txtCedulaCliente" layoutX="82.0" layoutY="135.0" prefHeight="25.0" prefWidth="172.0" />
+                                          <Button fx:id="btnBuscarCliente" layoutX="39.0" layoutY="170.0" mnemonicParsing="false" onAction="#onBuscarCliente" prefHeight="25.0" prefWidth="202.0" text="Buscar cliente" />
                                        </children>
                                     </AnchorPane>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                        <children>
                                           <Separator layoutX="3.0" layoutY="109.0" prefHeight="10.0" prefWidth="710.0" />
-                                          <TextArea fx:id="txtRequerimientoClientes" layoutX="308.0" layoutY="14.0" prefHeight="87.0" prefWidth="377.0" />
+                                          <TextArea fx:id="txtRequerimientoEmpleados" layoutX="308.0" layoutY="14.0" prefHeight="87.0" prefWidth="377.0" />
                                           <TextArea fx:id="txtRequerimientoEstado" layoutX="308.0" layoutY="125.0" prefHeight="87.0" prefWidth="377.0" />
-                                          <TextField fx:id="txtRangoClientesPrestamos" layoutX="86.0" layoutY="25.0" prefHeight="25.0" prefWidth="172.0" />
-                                          <Button fx:id="btnClientesMasPrestamos" layoutX="42.0" layoutY="65.0" mnemonicParsing="false" onAction="#onClientesMasPrestamos" prefHeight="25.0" prefWidth="202.0" text="Clientes con más prestamos" />
+                                          <TextField fx:id="txtRangoEmpleadosPrestamos" layoutX="86.0" layoutY="25.0" prefHeight="25.0" prefWidth="172.0" />
+                                          <Button fx:id="btnEmpleadosMasPrestamos" layoutX="42.0" layoutY="65.0" mnemonicParsing="false" onAction="#onEmpleadosMasPrestamos" prefHeight="25.0" prefWidth="202.0" text="Empleados con más prestamos" />
                                           <Label layoutX="28.0" layoutY="29.0" text="Rango:" />
                                           <Button fx:id="btnEstadoObjetos" layoutX="42.0" layoutY="156.0" mnemonicParsing="false" onAction="#onEstadoObjetos" prefHeight="25.0" prefWidth="202.0" text="Estado de los objetos" />
                                        </children>
