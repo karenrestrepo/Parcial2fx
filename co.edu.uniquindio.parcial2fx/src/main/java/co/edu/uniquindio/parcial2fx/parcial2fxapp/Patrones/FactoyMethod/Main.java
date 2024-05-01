@@ -3,12 +3,18 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese el tipo de empleado (permanente o temporal): ");
-        String tipo = scanner.nextLine();
+        IFabricaProductos fabricaVehiculos = new FabricaVehiculos();
+        IProducto coche = fabricaVehiculos.crearProducto("coche");
+        coche.mostrarDetalles();
 
-        FabricaEmpleados fabrica = new FabricaEmpleados();
-        Empleado empleado = fabrica.crearEmpleado(tipo);
-        empleado.trabajar();
+        IProducto motocicleta = fabricaVehiculos.crearProducto("motocicleta");
+        motocicleta.mostrarDetalles();
+
+        IFabricaProductos fabricaElectrodomesticos = new FabricaElectrodomesticos();
+        IProducto refrigerador = fabricaElectrodomesticos.crearProducto("refrigerador");
+        refrigerador.mostrarDetalles();
+
+        IProducto televisor = fabricaElectrodomesticos.crearProducto("televisor");
+        televisor.mostrarDetalles();
     }
 }
