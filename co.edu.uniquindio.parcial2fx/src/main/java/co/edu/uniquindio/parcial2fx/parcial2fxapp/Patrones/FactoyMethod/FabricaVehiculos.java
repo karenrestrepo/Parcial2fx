@@ -1,5 +1,11 @@
 package co.edu.uniquindio.parcial2fx.parcial2fxapp.Patrones.FactoyMethod;
 
+import co.edu.uniquindio.parcial2fx.parcial2fxapp.Patrones.FactoyMethod.Inter.IFabricaProductos;
+import co.edu.uniquindio.parcial2fx.parcial2fxapp.Patrones.FactoyMethod.Inter.IProducto;
+import co.edu.uniquindio.parcial2fx.parcial2fxapp.Patrones.FactoyMethod.Inter.Impl.Bicicleta;
+import co.edu.uniquindio.parcial2fx.parcial2fxapp.Patrones.FactoyMethod.Inter.Impl.Coche;
+import co.edu.uniquindio.parcial2fx.parcial2fxapp.Patrones.FactoyMethod.Inter.Impl.Motocicleta;
+
 public class FabricaVehiculos implements IFabricaProductos {
     @Override
     public IProducto crearProducto(String tipo) {

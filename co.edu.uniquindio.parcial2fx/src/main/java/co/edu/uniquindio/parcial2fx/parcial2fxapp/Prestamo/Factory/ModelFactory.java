@@ -154,11 +154,4 @@ public class ModelFactory {
         return prestamoUq.obtenerEstadoObjetos();
     }
 
-    public String obtenerPrestamosPorFechaEspecifica(LocalDate fecha) {
-        return prestamoUq.obtenerPrestamosPorFechaEspecifica(fecha);
-    }
-
-    public String obtenerPrestamosPorRangoFechas(LocalDate fechaInicial, LocalDate fechaFinal) {
-    return prestamoUq.obtenerPrestamosPorRangoFechas(fechaInicial,fechaFinal);
-    }
 }

@@ -128,44 +128,6 @@ public class AdministrativoController {
     }
 
     @FXML
-    void onFechaEspecifica(ActionEvent event) {
-        String fechaTexto = txtFechaEspecifica.getText().trim();
-        if (!fechaTexto.isEmpty()) {
-            try {
-                LocalDate fecha = LocalDate.parse(fechaTexto, formatoFecha);
-                String resultado = modelFactory.obtenerPrestamosPorFechaEspecifica(fecha);
-                txtRequerimientoFecha.setText(resultado);
-            } catch (DateTimeParseException e) {
-                txtRequerimientoFecha.setText("Formato de fecha inválido. Utilice el formato: " + formatoFecha.toString());
-            }
-        } else {
-            txtRequerimientoFecha.setText("Por favor, ingrese una fecha.");
-        }
-
-    }
-
-    @FXML
-    void onRangoFecha(ActionEvent event) {
-        String fechaInicialTexto = txtRangoFechaInicio.getText().trim();
-        String fechaFinalTexto = txtRangoFechaFin.getText().trim();
-        if (!fechaInicialTexto.isEmpty() && !fechaFinalTexto.isEmpty()) {
-            try {
-                SimpleDateFormat fechaInicial = SimpleDateFormat.(fechaInicialTexto, formatoFecha);
-                SimpleDateFormat fechaFinal = SimpleDateFormat.parse(fechaFinalTexto, formatoFecha);
-                String resultado = modelFactory.obtenerPrestamosPorRangoFechas(fechaInicial, fechaFinal);
-                txtRequerimientoFecha.setText(resultado);
-            } catch (DateTimeParseException e) {
-                txtRequerimientoFecha.setText("Formato de fecha inválido. Utilice el formato: " + formatoFecha.toString());
-            }
-        } else {
-            txtRequerimientoFecha.setText("Por favor, ingrese las fechas inicial y final.");
-        }
-
-    }
-
-    private SimpleDateFormat formatoFecha = (SimpleDateFormat) SimpleDateFormat.getDateInstance(Integer.parseInt("yyyy-MM-dd"));
-
-    @FXML
     void initialize() {
         modelFactory = ModelFactory.getInstance();
     }
