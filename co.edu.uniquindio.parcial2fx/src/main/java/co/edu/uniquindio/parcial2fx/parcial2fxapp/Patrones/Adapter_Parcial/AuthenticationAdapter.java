@@ -1,4 +1,4 @@
-package co.edu.uniquindio.parcial2fx.parcial2fxapp.Patrones.Adapter2;
+package co.edu.uniquindio.parcial2fx.parcial2fxapp.Patrones.Adapter_Parcial;
 
 import java.util.Scanner;
 

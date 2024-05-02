@@ -1,4 +1,4 @@
-package co.edu.uniquindio.parcial2fx.parcial2fxapp.Patrones.Adapter2;
+package co.edu.uniquindio.parcial2fx.parcial2fxapp.Patrones.Adapter_Parcial;
 
 public interface MultiFactorAuthenticationInterface {
     boolean authenticateWithOTP(String username, String password, String otp);
